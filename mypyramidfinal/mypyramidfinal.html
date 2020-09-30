@@ -1,0 +1,250 @@
+ <!DOCTYPE html>
+ <html>
+
+   <head>
+     <title>Page Title</title>
+     <link rel="stylesheet" type="text/css" href="mypyramid.css">
+   </head>
+
+   <body style="background-color: white;">
+     <header>Figure 1</header>
+     <div class="container">
+       <div class="shape one">
+         <div class="button">
+           <span></span>
+           <button class="add">+</button>
+           <input type="number" value="0">
+           <button class="subtract">-</button>
+         </div>
+       </div>
+       <div class="shape two">
+         <div class="button">
+           <span></span>
+           <button class="add">+</button>
+           <input type="number" value="0">
+           <button class="subtract">-</button>
+         </div>
+       </div>
+       <div class="shape three">
+         <div class="button">
+           <button class="add">+</button>
+           <input type="number" value="0">
+           <button class="subtract">-</button>
+         </div>
+       </div>
+       <div class="shape four">
+         <div class="button">
+           <span></span>
+           <button class="add">+</button>
+           <input type="number" value="0">
+           <button class="subtract">-</button>
+         </div>
+       </div>
+       <div class="shape five">
+         <div class="button">
+           <span></span>
+           <button class="add">+</button>
+           <input type="number" value="0">
+           <button class="subtract">-</button>
+
+
+         </div>
+       </div>
+       <div class="shape six">
+         <div class="button">
+           <span></span>
+           <button class="add">+</button>
+           <input type="number" value="0">
+           <button class="subtract">-</button>
+         </div>
+       </div>
+     </div>
+   </body>
+
+   <footer>
+     <h1>My Food Pyramid</h1>
+     <p>
+       Enter Date & Time:
+     </p>
+     <input type="date" id="currentDate">
+     <input type="time" id="currentTime">
+   </footer>
+   <style>
+     body {
+       background-color: #EFEFEF;
+	   
+	   padding-left:15%;
+	   padding-right:15%;
+     }
+
+     header {
+       text-align: center;
+       font-size: 30px;
+       font-weight: bold;
+       padding-bottom:10px;
+
+     }
+
+
+     .shape {
+       display: flex;
+       margin: auto;
+       height: 100px;
+       /* justify-content: center; */
+       flex-direction: column-reverse;
+
+     }
+
+
+
+     /*  .add{
+       
+       visibility: hidden;
+     }
+     
+     .subtract {
+       visibility: hidden;
+       
+     }
+     
+      .add{
+       
+       visibility: visible;
+     }
+     
+     .subtract {
+       visibility: visible;
+       
+     } 
+     Tried this method, made buttons invisible but not invisible*/
+
+
+
+
+
+
+
+
+
+     .button {
+
+       background-color: transparent;
+       /* Green */
+
+       border: none;
+       color: grey;
+       /* width: 30px; */
+       text-align: center;
+       text-decoration: none;
+       font-size: 60%;
+
+     }
+
+
+     .one {
+       background-color: red;
+       margin-bottom: 2px;
+     }
+
+     .one:hover {}
+
+     .two {
+       background-color: orange;
+       margin-bottom: 6px;
+
+     }
+
+     .two:hover {}
+
+     .three {
+       background-color: yellow;
+     }
+
+     .three:hover {}
+
+     .four {
+       background-color: #00aeff;
+     }
+
+     .four:hover {}
+
+     .five {
+       background-color: #a67233;
+     }
+
+     .five:hover {}
+
+     .six {
+       background-color: #18db12;
+     }
+
+     .six:hover {}
+
+     .shape four button {
+       padding-bottom: 10px;
+     }
+
+
+
+
+     .container {
+
+       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+       min-width: 600px;
+
+
+     }
+
+     footer {
+       font-weight: 900;
+       text-align: center;
+     }
+
+     .shape input {
+       text-align: center;
+       width: 20px;
+     }
+
+
+     .shape input::-webkit-outer-spin-button,
+     .shape input::-webkit-inner-spin-button {
+       -webkit-appearance: none;
+       margin: 0;
+     }
+
+     /* Firefox */
+     .shape input[type=number] {
+       -moz-appearance: textfield;
+     }
+
+   </style>
+
+   <script>
+     var date = new Date();
+     var currentDate = date.toISOString().slice(0, 10);
+     var currentTime = date.getHours() + ':' + date.getMinutes();
+
+     document.getElementById('currentDate').value = currentDate;
+     document.getElementById('currentTime').value = currentTime;
+
+     /* let btnAdd = document.querySelector('#add');
+     let btnSubtract = document.querySelector('#subtract');
+     let input = document.querySelector('input'); */
+
+     let buttons = document.querySelectorAll('.button');
+     let buttonsArray = Array.from(buttons);
+     for (const btn of buttonsArray) {
+       let input = btn.querySelector('input');
+       btn.querySelector('.add').addEventListener('click', () => {
+         input.value = parseInt(input.value) + 1;
+       });
+
+
+       btn.querySelector('.subtract').addEventListener('click', () => {
+         input.value = parseInt(input.value) - 1;
+       });
+     }
+
+   </script>
+
+ </html>
